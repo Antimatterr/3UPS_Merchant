@@ -1,0 +1,33 @@
+/* // Here you can add other styles */
+.c-app {
+    background: linear-gradient(#f05004, #fcab02) !important;
+}
+
+.btn-primary{
+    background: linear-gradient(#f05004, #fcab02) !important;
+    transition: 0.8s;
+}
+
+.btn-primary:hover{
+    transition: 0.8s;
+    background: linear-gradient(#fcab02,#f05004) !important;
+}
+
+.c-app .card{
+    border-radius: 0px 0px 0px 40px;
+}
+
+.c-app .card-body{
+    padding:0.25rem;
+}
+
+.c-app .bg-primary{
+background: linear-gradient(
+    45deg
+    , black, transparent);
+    border-radius: 0px 40px 0px 0px;
+}
+
+.c-app .btn-link{
+    text-decoration: none;
+}
