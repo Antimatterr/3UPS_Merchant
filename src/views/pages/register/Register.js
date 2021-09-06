@@ -18,9 +18,11 @@ import {
   CRow
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
+import "./register.css"
 
 const Register = () => {
   return (
+    <div className="register_page">
     <div className="c-app c-default-layout flex-row align-items-center">
       <CContainer>
         <CRow className="justify-content-center">
@@ -228,6 +230,7 @@ const Register = () => {
           </CCol>
         </CRow>
       </CContainer>
+    </div>
     </div>
   )
 }

@@ -1,26 +1,26 @@
 {
-  "name": "@3UPS",
+  "name": "@coreui/coreui-free-react-admin-template",
   "version": "3.2.1",
-  "description": "3UPS Merchant Application",
+  "description": "HSPM Solution's Master Piece on React JS",
   "author": {
-    "name": "3UPS",
-    "url": "",
-    "github": "https://github.com/saurabh114",
-    "twitter": ""
+    "name": "HSPM",
+    "url": "https://hspmsolutions.com",
+    "github": "https://github.com/Saurabh114",
+    "twitter": "https://twitter.com/@patil_saurabh"
   },
   "contributors": [
     {
-      "name": "HSPM Solutions",
-      "url": "https://github.com/Saurabh114"
+      "name": "CoreUI Team",
+      "url": "https://github.com/Saurabh114/3ups"
     }
   ],
   "homepage": ".",
-  "copyright": "Copyright 2021 HSPM Solutions",
+  "copyright": "Copyright 2021 Developed By HSPM Solutions ",
   "license": "MIT",
   "private": true,
   "repository": {
     "type": "git",
-    "url": "git@github.com:Saurabh114"
+    "url": "git@github.com:Saurabh114/3UPS_Merchant.git"
   },
   "dependencies": {
     "@coreui/chartjs": "^2.0.0",
@@ -30,7 +30,6 @@
     "@coreui/react": "^3.4.6",
     "@coreui/react-chartjs": "^1.1.0",
     "@coreui/utils": "^1.3.1",
-    "@material-ui/icons": "^4.11.2",
     "@wojtekmaj/enzyme-adapter-react-17": "^0.6.0",
     "classnames": "^2.2.6",
     "core-js": "^3.9.1",
@@ -58,6 +57,7 @@
     "eject": "react-scripts eject",
     "changelog": "auto-changelog --starting-version 3.0.0 --commit-limit false --hide-credit"
   },
+ 
   "eslintConfig": {
     "extends": "react-app"
   },

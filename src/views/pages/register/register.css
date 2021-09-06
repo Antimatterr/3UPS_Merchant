@@ -1,0 +1,14 @@
+.register_page .c-app {
+    background: linear-gradient(#f05004, #fcab02) !important;
+}
+
+
+.register_page .c-app .card{
+    border-radius: 0px 0px 0px 40px;
+}
+
+
+
+.register_page .c-app .btn-link{
+    text-decoration: none;
+}
