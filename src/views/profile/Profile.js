@@ -14,11 +14,13 @@ import {
   CInputGroup,
   CInput,
   CForm,
-  
+  CLabel,
   CImg,
+  CInputGroupAppend,
   CButton,
   CFormGroup,
   CTextarea,
+  CInputFile,
   CInputGroupText,
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
@@ -48,21 +50,40 @@ const Profile = () => {
               <CTabContent>
                 <CTabPane data-tab="profile">
                   <CForm>
-                  <div className="d-flex">
-                    <div className="p-avatar">
-                      <CImg
-                        src={'avatars/6.png'}
-                        className="p-avatar-img"
-                        alt="profile_img"
-                      />
+                    <div className="d-flex">
+                      <div className="p-avatar">
+                        <CImg
+                          src={'avatars/6.png'}
+                          className="p-avatar-img"
+                          alt="profile_img"
+                        />
+
+                      </div>
+                      <div className="p-avatar">
+                        <CImg
+                          src={'avatars/6.png'}
+                          className="p-avatar-img"
+                          alt="business_logo"
+                        />
+                      </div>
                     </div>
-                    <div className="p-avatar">
-                      <CImg
-                        src={'avatars/6.png'}
-                        className="p-avatar-img"
-                        alt="business_logo"
-                      />
-                    </div>
+                    <div className="d-flex">
+                    <CCol sm="12" md="6" lg="6" xl="6">
+                      <CFormGroup row>
+                        <CLabel col md="6" htmlFor="file-input" style={{textAlign:'end'}}>Upload Profile Photo</CLabel>
+                        <CCol xs="12" md="6">
+                          <CInputFile id="file-input" name="file-input" />
+                        </CCol>
+                      </CFormGroup>
+                    </CCol>
+                    <CCol sm="12" md="6" lg="6" xl="6">
+                      <CFormGroup row>
+                        <CLabel col md="6" htmlFor="file-input" style={{textAlign:'end'}}>Upload Business Logo</CLabel>
+                        <CCol xs="12" md="6">
+                          <CInputFile id="file-input" name="file-input" />
+                        </CCol>
+                      </CFormGroup>
+                    </CCol>
                     </div>
                     <CRow>
                       <CCol sm="12" md="6" lg="4" xl="4">
@@ -79,20 +100,68 @@ const Profile = () => {
                         <CInputGroup className="mb-3 mt-3">
                           <CInputGroupPrepend>
                             <CInputGroupText>
-                              <CIcon name="cil-phone" />
+                              <CIcon name="cil-x" style={{ color: 'red' }} />
                             </CInputGroupText>
                           </CInputGroupPrepend>
-                          <CInput type="tel" placeholder="Phone Number" autoComplete="PhoneNo" minlength="10" maxlength="10" pattern="[0-9]{10}" required />
+                          <CInput id="appendedInputButton" type="tel" placeholder="Phone Number" autoComplete="PhoneNo" minlength="10" maxlength="10" pattern="[0-9]{10}" required />
+                          <CInputGroupAppend>
+                            <CButton color="secondary">Edit</CButton>
+                          </CInputGroupAppend>
                         </CInputGroup>
                       </CCol>
                       <CCol sm="12" md="6" lg="4" xl="4">
                         <CInputGroup className="mb-3 mt-3">
                           <CInputGroupPrepend>
-                            <CInputGroupText>@</CInputGroupText>
+                            <CInputGroupText>
+                              <CIcon name="cil-check" style={{ color: 'green' }} />
+                            </CInputGroupText>
                           </CInputGroupPrepend>
-                          <CInput type="email" placeholder="Email" autoComplete="email" required />
+                          <CInput id="appendedInputButton" type="email" placeholder="Email" autoComplete="email" required />
+                          <CInputGroupAppend>
+                            <CButton color="secondary">Edit</CButton>
+                          </CInputGroupAppend>
                         </CInputGroup>
                       </CCol>
+                      <CCol sm="12" md="6" lg="4" xl="4">
+                        <CInputGroup className="mb-3">
+                          <CInputGroupPrepend>
+                            <CInputGroupText>
+                              <CIcon name="cil-user" />
+                            </CInputGroupText>
+                          </CInputGroupPrepend>
+                          <CInput type="text" placeholder="Business Name" autoComplete="b_name" required />
+                        </CInputGroup>
+                      </CCol>
+                      <CCol sm="12" md="6" lg="4" xl="4">
+                        <CInputGroup className="mb-3">
+                          <CInputGroupPrepend>
+                            <CInputGroupText>
+                              <CIcon name="cil-pencil" />
+                            </CInputGroupText>
+                          </CInputGroupPrepend>
+                          <CInput type="text" placeholder="Business Type" autoComplete="business-type" />
+                        </CInputGroup>
+                      </CCol>
+                      <CCol sm="12" md="6" lg="4" xl="4">
+                        <CInputGroup className="mb-3">
+                          <CInputGroupPrepend>
+                            <CInputGroupText>
+                              <CIcon name="cil-pencil" />
+                            </CInputGroupText>
+                          </CInputGroupPrepend>
+                          <CInput type="text" placeholder="Business Category" autoComplete="business-category" />
+                        </CInputGroup>
+                      </CCol>
+
+                    </CRow>
+                    <CCol style={{ textAlign: 'center', margin: 'auto' }} sm="12" md="6" lg="4" xl="4">
+                      <CButton color="success" block>Update Profile</CButton>
+                    </CCol>
+                  </CForm>
+                </CTabPane>
+                <CTabPane data-tab="Business_details">
+                  <CForm>
+                    <CRow className="mt-3">
                       <CCol sm="12" md="6" lg="4" xl="4">
                         <CInputGroup className="mb-3">
                           <CInputGroupPrepend>
@@ -141,45 +210,6 @@ const Profile = () => {
                             </CInputGroupText>
                           </CInputGroupPrepend>
                           <CInput type="text" placeholder="Nearby Airport" autoComplete="airport" required />
-                        </CInputGroup>
-                      </CCol>
-                    </CRow>
-                    <CCol style={{ textAlign: 'center', margin: 'auto' }} sm="12" md="6" lg="4" xl="4">
-                      <CButton color="success" block>Update Profile</CButton>
-                    </CCol>
-                  </CForm>
-                </CTabPane>
-                <CTabPane data-tab="Business_details">
-                  <CForm>
-                    <CRow className="mt-3">
-                      <CCol sm="12" md="6" lg="4" xl="4">
-                        <CInputGroup className="mb-3">
-                          <CInputGroupPrepend>
-                            <CInputGroupText>
-                              <CIcon name="cil-user" />
-                            </CInputGroupText>
-                          </CInputGroupPrepend>
-                          <CInput type="text" placeholder="Business Name" autoComplete="b_name" required />
-                        </CInputGroup>
-                      </CCol>
-                      <CCol sm="12" md="6" lg="4" xl="4">
-                        <CInputGroup className="mb-3">
-                          <CInputGroupPrepend>
-                            <CInputGroupText>
-                              <CIcon name="cil-pencil" />
-                            </CInputGroupText>
-                          </CInputGroupPrepend>
-                          <CInput type="text" placeholder="Business Type" autoComplete="business-type" />
-                        </CInputGroup>
-                      </CCol>
-                      <CCol sm="12" md="6" lg="4" xl="4">
-                        <CInputGroup className="mb-3">
-                          <CInputGroupPrepend>
-                            <CInputGroupText>
-                              <CIcon name="cil-pencil" />
-                            </CInputGroupText>
-                          </CInputGroupPrepend>
-                          <CInput type="text" placeholder="Business Category" autoComplete="business-category" />
                         </CInputGroup>
                       </CCol>
 
