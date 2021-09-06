@@ -29,14 +29,10 @@ const TheHeaderDropdown = () => {
       <CDropdownMenu className="pt-0" placement="bottom-end">
 
       
-        <CDropdownItem>
+        <CDropdownItem style={{display:'flex'}}>
           <CIcon name="cil-user" className="mfe-2" />
-          <CHeaderNavLink  to="/widgets" >Profile
+          <CHeaderNavLink  to="/profile" style={{color:'#212529'}} >Profile
           </CHeaderNavLink>
-        </CDropdownItem>
-        <CDropdownItem>
-          <CIcon name="cil-settings" className="mfe-2" />
-          Settings
         </CDropdownItem>
         <CDropdownItem divider />
         <CDropdownItem>

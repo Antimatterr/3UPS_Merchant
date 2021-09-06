@@ -60,7 +60,7 @@ const Login = () => {
                                     <CIcon name="cil-user" />
                                   </CInputGroupText>
                                 </CInputGroupPrepend>
-                                <CInput type="text" placeholder="Email/Phone Number" autoComplete="username" required />
+                                <CInput type="text" placeholder="Email / Phone Number" autoComplete="username" required />
                               </CInputGroup>
                               <CInputGroup className="mb-4">
                                 <CInputGroupPrepend>
@@ -85,7 +85,7 @@ const Login = () => {
                                     <CIcon name="cil-user" />
                                   </CInputGroupText>
                                 </CInputGroupPrepend>
-                                <CInput type="text" placeholder="Email/Phone Number" autoComplete="username" required />
+                                <CInput type="text" placeholder="Email / Phone Number" autoComplete="username" required />
                               </CInputGroup>
                               <CInputGroup className="mb-4">
                                 <CInputGroupPrepend>
