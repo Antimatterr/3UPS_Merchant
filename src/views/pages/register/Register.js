@@ -219,7 +219,7 @@ const Register = () => {
                         <CIcon name="cil-speech" />
                       </CInputGroupText>
                     </CInputGroupPrepend>
-                    <CTextarea name="textarea-input" id="textarea-input" rows="2" placeholder="Business Desctiption" />
+                    <CTextarea name="textarea-input" id="textarea-input" rows="2" placeholder="Business Description" />
                   </CInputGroup>
                   </CCol>
                   <CCol sm="12" md="6" lg="6" xl="6">
