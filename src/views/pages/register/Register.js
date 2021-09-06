@@ -145,29 +145,25 @@ const Register = () => {
                     </CSelect>
                   </CFormGroup>
                   </CCol>
-                 
+
                   <CCol sm="12" md="6" lg="3" xl="3">
-                  <CLabel htmlFor="ccmonth">Opening Time</CLabel>
                   <CInputGroup className="mb-3">
                     <CInputGroupPrepend>
                       <CInputGroupText>
-                        <CIcon name="cil-bell" />
+                        <CIcon name="cil-pencil" />
                       </CInputGroupText>
                     </CInputGroupPrepend>
-                    <CInput type="time" placeholder="Opening Time" autoComplete="time" />
+                    <CInput type="text" placeholder="Pan Card Number" autoComplete="Pan Number" req/>
                   </CInputGroup>
                   </CCol>
                   <CCol sm="12" md="6" lg="3" xl="3">
-                  <CLabel htmlFor="ccmonth">Closing Time</CLabel>
-                  <CInputGroup className="mb-3">
-                    <CInputGroupPrepend>
-                      <CInputGroupText>
-                      <CIcon name="cil-bell" />
-                      </CInputGroupText>
-                    </CInputGroupPrepend>
-                    <CInput type="time" placeholder="Closing Time" autoComplete="time" />
-                  </CInputGroup>
+                  <CFormGroup row>
+                  <CLabel col md="3" htmlFor="file-input">Pan Card</CLabel>
+                  <CCol xs="12" md="9">
+                    <CInputFile id="file-input" name="file-input"/>
                   </CCol>
+                </CFormGroup>
+                </CCol>
                   <CCol sm="12" md="6" lg="3" xl="3">
                   <CInputGroup className="mb-3">
                     <CInputGroupPrepend>
@@ -194,23 +190,29 @@ const Register = () => {
                   </CCol>
                 </CFormGroup>
                 </CCol>
-                  <CCol sm="12" md="6" lg="3" xl="3">
+                <CCol sm="12" md="6" lg="3" xl="3">
+                  <CLabel htmlFor="ccmonth">Opening Time</CLabel>
                   <CInputGroup className="mb-3">
                     <CInputGroupPrepend>
                       <CInputGroupText>
-                        <CIcon name="cil-pencil" />
+                        <CIcon name="cil-bell" />
                       </CInputGroupText>
                     </CInputGroupPrepend>
-                    <CInput type="text" placeholder="Pan Card Number" autoComplete="Pan Number" req/>
+                    <CInput type="time" placeholder="Opening Time" autoComplete="time" />
                   </CInputGroup>
                   </CCol>
-                  <CFormGroup row>
-                  <CLabel col md="3" htmlFor="file-input">Pan Card</CLabel>
-                  <CCol xs="12" md="9">
-                    <CInputFile id="file-input" name="file-input"/>
+                  <CCol sm="12" md="6" lg="3" xl="3">
+                  <CLabel htmlFor="ccmonth">Closing Time</CLabel>
+                  <CInputGroup className="mb-3">
+                    <CInputGroupPrepend>
+                      <CInputGroupText>
+                      <CIcon name="cil-bell" />
+                      </CInputGroupText>
+                    </CInputGroupPrepend>
+                    <CInput type="time" placeholder="Closing Time" autoComplete="time" />
+                  </CInputGroup>
                   </CCol>
-                </CFormGroup>
-                <CCol sm="12" md="6" lg="4" xl="4">
+                <CCol sm="12" md="6" lg="6" xl="6">
                   <CInputGroup className="mb-4">
                     <CInputGroupPrepend>
                       <CInputGroupText>
@@ -220,6 +222,22 @@ const Register = () => {
                     <CTextarea name="textarea-input" id="textarea-input" rows="2" placeholder="Business Desctiption" />
                   </CInputGroup>
                   </CCol>
+                  <CCol sm="12" md="6" lg="6" xl="6">
+                  <CFormGroup row>
+                  <CLabel col md="6" htmlFor="file-input">Upload Profile Photo</CLabel>
+                  <CCol xs="12" md="6">
+                    <CInputFile id="file-input" name="file-input"/>
+                  </CCol>
+                </CFormGroup>
+                </CCol>
+                <CCol sm="12" md="6" lg="6" xl="6">
+                <CFormGroup row>
+                  <CLabel col md="6" htmlFor="file-input">Upload Business Logo</CLabel>
+                  <CCol xs="12" md="6">
+                    <CInputFile id="file-input" name="file-input"/>
+                  </CCol>
+                </CFormGroup>
+                </CCol>
                   </CRow>
                   <CCol style={{textAlign:'center',margin:'auto'}} sm="12" md="6" lg="4" xl="4">
                   <CButton color="success" block>Create Account</CButton>
