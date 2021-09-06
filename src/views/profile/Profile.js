@@ -22,13 +22,18 @@ import {
   CTextarea,
   CInputFile,
   CInputGroupText,
+  CModal,
+  CModalBody,
+  CModalFooter,
+  CModalHeader,
+  CModalTitle,
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
 import "./profile.css"
 
 const Profile = () => {
-  const [active, setActive] = useState(1)
-
+  const [warning, setWarning] = useState(false)
+  const [success, setSuccess] = useState(false)
   return (
     <>
       <CCol xs="12" md="12" className="mb-4">
@@ -68,22 +73,22 @@ const Profile = () => {
                       </div>
                     </div>
                     <div className="d-flex">
-                    <CCol sm="12" md="6" lg="6" xl="6">
-                      <CFormGroup row>
-                        <CLabel col md="6" htmlFor="file-input" style={{textAlign:'end'}}>Upload Profile Photo</CLabel>
-                        <CCol xs="12" md="6">
-                          <CInputFile id="file-input" name="file-input" />
-                        </CCol>
-                      </CFormGroup>
-                    </CCol>
-                    <CCol sm="12" md="6" lg="6" xl="6">
-                      <CFormGroup row>
-                        <CLabel col md="6" htmlFor="file-input" style={{textAlign:'end'}}>Upload Business Logo</CLabel>
-                        <CCol xs="12" md="6">
-                          <CInputFile id="file-input" name="file-input" />
-                        </CCol>
-                      </CFormGroup>
-                    </CCol>
+                      <CCol sm="12" md="6" lg="6" xl="6">
+                        <CFormGroup row>
+                          <CLabel col md="6" htmlFor="file-input" style={{ textAlign: 'end' }}>Upload Profile Photo</CLabel>
+                          <CCol xs="12" md="6">
+                            <CInputFile id="file-input" name="file-input" />
+                          </CCol>
+                        </CFormGroup>
+                      </CCol>
+                      <CCol sm="12" md="6" lg="6" xl="6">
+                        <CFormGroup row>
+                          <CLabel col md="6" htmlFor="file-input" style={{ textAlign: 'end' }}>Upload Business Logo</CLabel>
+                          <CCol xs="12" md="6">
+                            <CInputFile id="file-input" name="file-input" />
+                          </CCol>
+                        </CFormGroup>
+                      </CCol>
                     </div>
                     <CRow>
                       <CCol sm="12" md="6" lg="4" xl="4">
@@ -105,7 +110,7 @@ const Profile = () => {
                           </CInputGroupPrepend>
                           <CInput id="appendedInputButton" type="tel" placeholder="Phone Number" autoComplete="PhoneNo" minlength="10" maxlength="10" pattern="[0-9]{10}" required />
                           <CInputGroupAppend>
-                            <CButton color="secondary">Edit</CButton>
+                            <CButton color="secondary" onClick={() => setSuccess(!success)} className="mr-1">Edit</CButton>
                           </CInputGroupAppend>
                         </CInputGroup>
                       </CCol>
@@ -118,7 +123,7 @@ const Profile = () => {
                           </CInputGroupPrepend>
                           <CInput id="appendedInputButton" type="email" placeholder="Email" autoComplete="email" required />
                           <CInputGroupAppend>
-                            <CButton color="secondary">Edit</CButton>
+                            <CButton color="secondary" onClick={() => setWarning(!warning)} className="mr-1">Edit</CButton>
                           </CInputGroupAppend>
                         </CInputGroup>
                       </CCol>
@@ -212,27 +217,6 @@ const Profile = () => {
                           <CInput type="text" placeholder="Nearby Airport" autoComplete="airport" required />
                         </CInputGroup>
                       </CCol>
-
-                      <CCol sm="12" md="6" lg="4" xl="4">
-                        <CInputGroup className="mb-3">
-                          <CInputGroupPrepend>
-                            <CInputGroupText>
-                              <CIcon name="cil-bell" />
-                            </CInputGroupText>
-                          </CInputGroupPrepend>
-                          <CInput type="time" placeholder="Opening Time" autoComplete="time" />
-                        </CInputGroup>
-                      </CCol>
-                      <CCol sm="12" md="6" lg="4" xl="4">
-                        <CInputGroup className="mb-3">
-                          <CInputGroupPrepend>
-                            <CInputGroupText>
-                              <CIcon name="cil-bell" />
-                            </CInputGroupText>
-                          </CInputGroupPrepend>
-                          <CInput type="time" placeholder="Closing Time" autoComplete="time" />
-                        </CInputGroup>
-                      </CCol>
                       <CCol sm="12" md="6" lg="4" xl="4">
                         <CInputGroup className="mb-3">
                           <CInputGroupPrepend>
@@ -254,15 +238,36 @@ const Profile = () => {
                           <CInput type="text" placeholder="Pan Card Number" autoComplete="Pan Number" req />
                         </CInputGroup>
                       </CCol>
-
                       <CCol sm="12" md="6" lg="4" xl="4">
+                        <CInputGroup className="mb-3">
+                          <CInputGroupPrepend>
+                            <CInputGroupText>
+                              <CIcon name="cil-bell" />
+                            </CInputGroupText>
+                          </CInputGroupPrepend>
+                          <CInput type="time" placeholder="Opening Time" autoComplete="time" />
+                        </CInputGroup>
+                      </CCol>
+                      <CCol sm="12" md="6" lg="4" xl="4">
+                        <CInputGroup className="mb-3">
+                          <CInputGroupPrepend>
+                            <CInputGroupText>
+                              <CIcon name="cil-bell" />
+                            </CInputGroupText>
+                          </CInputGroupPrepend>
+                          <CInput type="time" placeholder="Closing Time" autoComplete="time" />
+                        </CInputGroup>
+                      </CCol>
+
+
+                      <CCol sm="12" md="12" lg="12" xl="12">
                         <CInputGroup className="mb-4">
                           <CInputGroupPrepend>
                             <CInputGroupText>
                               <CIcon name="cil-speech" />
                             </CInputGroupText>
                           </CInputGroupPrepend>
-                          <CTextarea name="textarea-input" id="textarea-input" rows="2" placeholder="Business Desctiption" />
+                          <CTextarea name="textarea-input" id="textarea-input" rows="1" placeholder="Business Desctiption" />
                         </CInputGroup>
                       </CCol>
                     </CRow>
@@ -276,6 +281,96 @@ const Profile = () => {
           </CCardBody>
         </CCard>
       </CCol>
+         
+{/* ============= Modals for  Start ============ */}
+
+      <CModal
+        show={success}
+        onClose={() => setSuccess(!success)}
+        color="warning"
+      >
+        <CModalHeader closeButton>
+          <CModalTitle>Verify Contact Number</CModalTitle>
+        </CModalHeader>
+        <CForm>
+          <CModalBody>
+            <CCol style={{ textAlign: 'center', margin: 'auto' }} sm="12" md="6" lg="8" xl="8">
+              <CInputGroup>
+                <CInputGroupPrepend>
+                  <CInputGroupText>
+                    <CIcon name="cil-phone" />
+                  </CInputGroupText>
+                </CInputGroupPrepend>
+                <CInput id="appendedInputButton" type="tel" placeholder="Phone Number" autoComplete="PhoneNo" minlength="10" maxlength="10" pattern="[0-9]{10}" required />
+              </CInputGroup>
+            </CCol>
+            <CCol style={{ textAlign: 'center', margin: 'auto' }} sm="12" md="6" lg="4" xl="4">
+              <CButton color="warning" className="mt-3" style={{ color: 'white' }} block>Verify</CButton>
+            </CCol>
+            <br />
+            <CCol style={{ textAlign: 'center', margin: 'auto' }} sm="12" md="6" lg="8" xl="8">
+              <CInputGroup>
+                <CInputGroupPrepend>
+                  <CInputGroupText>
+                    <CIcon name="cil-pencil" />
+                  </CInputGroupText>
+                </CInputGroupPrepend>
+                <CInput id="appendedInputButton" type="otp" placeholder="Enter OTP" autoComplete="otp" required />
+              </CInputGroup>
+            </CCol>
+          </CModalBody>
+        </CForm>
+        <CModalFooter style={{ justifyContent: 'space-evenly' }}>
+          <CButton color="warning" style={{ color: 'white' }} onClick={() => setWarning(!warning)}>Submit</CButton>{' '}
+          <CButton color="secondary" onClick={() => setWarning(!warning)}>Cancel</CButton>
+        </CModalFooter>
+      </CModal>
+
+
+      <CModal
+        show={warning}
+        onClose={() => setWarning(!warning)}
+        color="warning"
+      >
+        <CModalHeader closeButton>
+          <CModalTitle>Verify Email ID</CModalTitle>
+        </CModalHeader>
+        <CForm>
+          <CModalBody>
+            <CCol style={{ textAlign: 'center', margin: 'auto' }} sm="12" md="6" lg="8" xl="8">
+              <CInputGroup>
+                <CInputGroupPrepend>
+                  <CInputGroupText>
+                    <CIcon name="cil-envelope-closed" />
+                  </CInputGroupText>
+                </CInputGroupPrepend>
+                <CInput id="appendedInputButton" type="email" placeholder="Email" autoComplete="email" required />
+              </CInputGroup>
+            </CCol>
+            <CCol style={{ textAlign: 'center', margin: 'auto' }} sm="12" md="6" lg="4" xl="4">
+              <CButton color="warning" className="mt-3" style={{ color: 'white' }} block>Verify</CButton>
+            </CCol>
+            <br />
+            <CCol style={{ textAlign: 'center', margin: 'auto' }} sm="12" md="6" lg="8" xl="8">
+              <CInputGroup>
+                <CInputGroupPrepend>
+                  <CInputGroupText>
+                    <CIcon name="cil-pencil" />
+                  </CInputGroupText>
+                </CInputGroupPrepend>
+                <CInput id="appendedInputButton" type="otp" placeholder="Enter OTP" autoComplete="otp" required />
+              </CInputGroup>
+            </CCol>
+          </CModalBody>
+        </CForm>
+        <CModalFooter style={{ justifyContent: 'space-evenly' }}>
+          <CButton color="warning" style={{ color: 'white' }} onClick={() => setWarning(!warning)}>Submit</CButton>{' '}
+          <CButton color="secondary" onClick={() => setWarning(!warning)}>Cancel</CButton>
+        </CModalFooter>
+      </CModal>
+
+      {/* ============= Modals for End ============ */}
+
     </>
   )
 }
