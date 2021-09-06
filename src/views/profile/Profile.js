@@ -45,11 +45,6 @@ const Profile = () => {
                     Business Details
                   </CNavLink>
                 </CNavItem>
-                {/* <CNavItem>
-                  <CNavLink data-tab="messages">
-                    Messages
-                  </CNavLink>
-                </CNavItem> */}
               </CNav>
               <CTabContent>
                 <CTabPane data-tab="profile">

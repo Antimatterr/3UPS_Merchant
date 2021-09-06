@@ -194,7 +194,7 @@ const Register = () => {
                   </CCol>
                 </CFormGroup>
                 </CCol>
-                  <CCol sm="12" md="6" lg="4" xl="4">
+                  <CCol sm="12" md="6" lg="3" xl="3">
                   <CInputGroup className="mb-3">
                     <CInputGroupPrepend>
                       <CInputGroupText>
