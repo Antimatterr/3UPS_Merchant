@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import {
   CButton,
@@ -8,25 +8,28 @@ import {
   CCol,
   CContainer,
   CForm,
-  CFormGroup,
   CInput,
   CInputGroup,
   CInputGroupPrepend,
   CInputGroupText,
   CRow,
-  CInputRadio,
-  CLabel,
   CTabs,
   CNav,
   CNavItem,
   CNavLink,
   CTabContent,
   CTabPane,
+  CModal,
+  CModalBody,
+  CModalFooter,
+  CModalHeader,
+  CModalTitle,
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
 import "./login.css"
 
 const Login = () => {
+  const [warning, setWarning] = useState(false)
   return (
     <div className="login_page">
       <div className="c-app c-default-layout flex-row align-items-center">
@@ -53,7 +56,7 @@ const Login = () => {
                       <CTabContent>
                         <CTabPane data-tab="profile">
                           <CForm>
-                            <CRow className="mt-3" style={{padding:'20px'}}>
+                            <CRow className="mt-3" style={{ padding: '20px' }}>
                               <CInputGroup className="mb-3">
                                 <CInputGroupPrepend>
                                   <CInputGroupText>
@@ -70,15 +73,18 @@ const Login = () => {
                                 </CInputGroupPrepend>
                                 <CInput type="password" placeholder="Password" autoComplete="current-password" required />
                               </CInputGroup>
-                              <CCol xs="12" lg="12" style={{textAlign:'center'}}>
-                                  <CButton color="primary" className="px-4" style={{margin:'auto'}}>Login</CButton>
-                                </CCol>
+                              <CCol xs="12" lg="12" style={{ textAlign: 'center' }}>
+                                <CButton color="primary" className="px-4" style={{ margin: 'auto' }}>Login</CButton>
+                              </CCol>
+                              <CCol xs="12" className="text-right mt-3">
+                                <CButton color="link" className="px-0"  onClick={() => setWarning(!warning)} >Forgot password?</CButton>
+                              </CCol>
                             </CRow>
                           </CForm>
                         </CTabPane>
                         <CTabPane data-tab="Business_details">
                           <CForm>
-                          <CRow className="mt-3" style={{padding:'20px'}}>
+                            <CRow className="mt-3" style={{ padding: '20px' }}>
                               <CInputGroup className="mb-3">
                                 <CInputGroupPrepend>
                                   <CInputGroupText>
@@ -95,10 +101,10 @@ const Login = () => {
                                 </CInputGroupPrepend>
                                 <CInput type="otp" placeholder="Enter OTP" autoComplete="current-password" required />
                               </CInputGroup>
-                              
-                                <CCol xs="12" lg="12" style={{textAlign:'center'}}>
-                                  <CButton color="primary" className="px-4" style={{margin:'auto'}}>Login</CButton>
-                                </CCol>
+
+                              <CCol xs="12" lg="12" style={{ textAlign: 'center' }}>
+                                <CButton color="primary" className="px-4" style={{ margin: 'auto' }}>Login</CButton>
+                              </CCol>
                             </CRow>
                           </CForm>
                         </CTabPane>
@@ -123,6 +129,35 @@ const Login = () => {
           </CRow>
         </CContainer>
       </div>
+
+
+      <CModal
+        show={warning}
+        onClose={() => setWarning(!warning)}
+        color="warning"
+      >
+        <CModalHeader closeButton>
+          <CModalTitle>Forgot Password</CModalTitle>
+        </CModalHeader>
+        <CForm>
+          <CModalBody>
+            <CCol style={{ textAlign: 'center', margin: 'auto' }} sm="12" md="6" lg="8" xl="8">
+              <CInputGroup>
+                <CInputGroupPrepend>
+                  <CInputGroupText>
+                    <CIcon name="cil-envelope-closed" />
+                  </CInputGroupText>
+                </CInputGroupPrepend>
+                <CInput id="appendedInputButton" type="email" placeholder="Registered Email ID" autoComplete="email" required />
+              </CInputGroup>
+            </CCol>
+          </CModalBody>
+        </CForm>
+        <CModalFooter style={{ justifyContent: 'space-evenly' }}>
+          <CButton color="warning" style={{ color: 'white' }} onClick={() => setWarning(!warning)}>Submit</CButton>{' '}
+          <CButton color="secondary" onClick={() => setWarning(!warning)}>Cancel</CButton>
+        </CModalFooter>
+      </CModal>
     </div>
   )
 }
