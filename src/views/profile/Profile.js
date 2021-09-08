@@ -36,7 +36,7 @@ const Profile = () => {
   const [success, setSuccess] = useState(false)
   return (
     <>
-      <CCol xs="12" md="12" className="mb-4">
+      <CCol xs="12" md="12" className="mb-4 profile">
         <CCard>
           <CCardBody>
             <CTabs activeTab="profile">
@@ -66,7 +66,7 @@ const Profile = () => {
                       </div>
                       <div className="p-avatar">
                         <CImg
-                          src={'avatars/6.png'}
+                          src={'avatars/logo.png'}
                           className="p-avatar-img"
                           alt="business_logo"
                         />
@@ -74,17 +74,17 @@ const Profile = () => {
                     </div>
                     <div className="d-flex">
                       <CCol sm="12" md="6" lg="6" xl="6">
-                        <CFormGroup row>
-                          <CLabel col md="6" htmlFor="file-input" style={{ textAlign: 'end' }}>Upload Profile Photo</CLabel>
-                          <CCol xs="12" md="6">
+                        <CFormGroup row className="img_input">
+                          <CLabel col md="5" htmlFor="file-input">Upload Profile Photo</CLabel>
+                          <CCol xs="12" md="7">
                             <CInputFile id="file-input" name="file-input" />
                           </CCol>
                         </CFormGroup>
                       </CCol>
                       <CCol sm="12" md="6" lg="6" xl="6">
-                        <CFormGroup row>
-                          <CLabel col md="6" htmlFor="file-input" style={{ textAlign: 'end' }}>Upload Business Logo</CLabel>
-                          <CCol xs="12" md="6">
+                        <CFormGroup row className="img_input">
+                          <CLabel col md="5" htmlFor="file-input">Upload Business Logo</CLabel>
+                          <CCol xs="12" md="7">
                             <CInputFile id="file-input" name="file-input" />
                           </CCol>
                         </CFormGroup>

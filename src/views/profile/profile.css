@@ -11,3 +11,17 @@
     height: auto;
     border-radius: 50%;
 }
+
+.profile .img_input{
+    border: 1px solid #d8dbe0;
+    border-radius: 5px;
+    padding: 5px;
+    width: 100%;
+    margin: auto;
+    margin-bottom: 15px;
+}
+
+.col-form-label{
+    font-size: 15px;
+    padding:5px;
+}

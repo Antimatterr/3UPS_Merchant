@@ -27,9 +27,24 @@ import {
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
 import "./login.css"
+import { Visibility, VisibilityOff } from '@material-ui/icons'
+import http from '../../../connections/http'
+
+const loginMethod=()=>{
+  let data={
+  }
+  http.get('https://3-upstesting.site/delta_api/index.php/web/Login/login_with_pwd?user_name=admin@gmail.com&user_password=1234',data,async(data)=>{
+    console.log(data);
+  })
+};
+
 
 const Login = () => {
   const [warning, setWarning] = useState(false)
+  const [toggle, setToggle] = useState(false)
+
+
+
   return (
     <div className="login_page">
       <div className="c-app c-default-layout flex-row align-items-center">
@@ -71,10 +86,19 @@ const Login = () => {
                                     <CIcon name="cil-lock-locked" />
                                   </CInputGroupText>
                                 </CInputGroupPrepend>
-                                <CInput type="password" placeholder="Password" autoComplete="current-password" required />
+                                <CInput type="password" placeholder="Password"  required />
+                               
+                                <CInputGroupPrepend>
+                                  <CInputGroupText  onClick={() => toggle? setToggle(false) : setToggle(true)}>
+                                  
+                                    {toggle ? <Visibility/> : <VisibilityOff/>
+                                    }
+                                  </CInputGroupText>
+                                </CInputGroupPrepend>
+
                               </CInputGroup>
                               <CCol xs="12" lg="12" style={{ textAlign: 'center' }}>
-                                <CButton color="primary" className="px-4" style={{ margin: 'auto' }}>Login</CButton>
+                                <CButton color="primary" className="px-4" style={{ margin: 'auto' }} onClick={() => loginMethod()}>Login</CButton>
                               </CCol>
                               <CCol xs="12" className="text-right mt-3">
                                 <CButton color="link" className="px-0"  onClick={() => setWarning(!warning)} >Forgot password?</CButton>
@@ -99,7 +123,7 @@ const Login = () => {
                                     <CIcon name="cil-lock-locked" />
                                   </CInputGroupText>
                                 </CInputGroupPrepend>
-                                <CInput type="otp" placeholder="Enter OTP" autoComplete="current-password" required />
+                                <CInput type="otp" placeholder="Enter OTP"  required />
                               </CInputGroup>
 
                               <CCol xs="12" lg="12" style={{ textAlign: 'center' }}>
@@ -115,7 +139,7 @@ const Login = () => {
                 </CCard>
                 <CCard className="text-white bg-primary py-5 d-md-down">
                   <CCardBody className="text-center">
-                    <div>
+                    <div style={{    marginTop: '30px'}}>
                       <h2>Sign up</h2>
                       <h6>Register as <strong>Merchant</strong> at <strong>3UPS</strong></h6>
                       <Link to="/register">

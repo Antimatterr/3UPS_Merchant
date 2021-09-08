@@ -9,9 +9,17 @@
 
 .register_page .c-app .col-form-label{
     padding: 0px;
-    text-align: end;
 }
 
 .register_page .c-app .btn-link{
     text-decoration: none;
+}
+
+.register_page .c-app .img_input{
+    border: 1px solid #d8dbe0;
+    border-radius: 5px;
+    padding: 5px;
+    width: 100%;
+    margin: auto;
+    margin-bottom: 15px;
 }
