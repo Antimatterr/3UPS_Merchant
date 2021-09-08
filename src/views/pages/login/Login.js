@@ -28,7 +28,7 @@ import {
 import CIcon from '@coreui/icons-react'
 import "./login.css"
 import { Visibility, VisibilityOff } from '@material-ui/icons'
-import http from '../../../connections/http'
+// import http from '../../../connections/http'
 import axios from 'axios'
 
 function Login() {
@@ -97,7 +97,7 @@ function Login() {
                                                                         <CIcon name="cil-lock-locked" />
                                                                     </CInputGroupText>
                                                                 </CInputGroupPrepend>
-                                                                <CInput type="text" placeholder="Password" onChange={(e) => handle(e)} id="user_password" value={data.user_password} required />
+                                                                <CInput type={toggle ? "type" : "password" } placeholder="Password" onChange={(e) => handle(e)} id="user_password" value={data.user_password} required />
 
                                                                 <CInputGroupPrepend>
                                                                     <CInputGroupText onClick={() => toggle ? setToggle(false) : setToggle(true)}>
