@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { configureStore } from '@reduxjs/toolkit'
 import {
     CButton,
     CCard,
@@ -41,9 +42,11 @@ function Login() {
         login: false,
         user: localStorage.getItem('token')
     })
+ 
 
+    
     const url = "https://3-upstesting.site/delta_api/index.php/web/Login/login_with_pwd?user_name="+ data.user_name +"&user_password="+ data.user_password 
-
+    
     function submit(e){
         e.preventDefault();
         axios.get(url)
@@ -51,13 +54,13 @@ function Login() {
             console.log(res.data)
             localStorage.setItem('login',JSON.stringify({
                 user: res.data.token}))
-            setLogin({
-                login: true,
-                user: res.data.token
+                setLogin({
+                    login: true,
+                    user: res.data.token
+                })
+                console.log(localStorage.getItem('login'));
             })
-            console.log(localStorage.getItem('login'));
-        })
-    }
+        }
 
     function handle(e) {
         const newdata = { ...data }
