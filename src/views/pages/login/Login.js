@@ -37,6 +37,11 @@ function Login() {
         user_name: "",
         user_password: "",
     })
+    const [login, setLogin] = useState({
+        login: false,
+        user: localStorage.getItem('token')
+    })
+
     const url = "https://3-upstesting.site/delta_api/index.php/web/Login/login_with_pwd?user_name="+ data.user_name +"&user_password="+ data.user_password 
 
     function submit(e){
@@ -44,6 +49,13 @@ function Login() {
         axios.get(url)
         .then(res=>{
             console.log(res.data)
+            localStorage.setItem('login',JSON.stringify({
+                user: res.data.token}))
+            setLogin({
+                login: true,
+                user: res.data.token
+            })
+            console.log(localStorage.getItem('login'));
         })
     }
 
@@ -65,7 +77,6 @@ function Login() {
                             <CCardGroup>
                                 <CCard className="p-4">
                                     <CCardBody>
-
                                         <CTabs activeTab="profile">
                                             <CNav variant="tabs">
                                                 <CNavItem>
